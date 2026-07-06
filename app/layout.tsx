@@ -3,6 +3,7 @@ import { Sora, Archivo } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { organizationSchema, localBusinessSchema } from '@/lib/seo';
 
 const sora = Sora({
@@ -91,6 +92,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-archivo antialiased">
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />
