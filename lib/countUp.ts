@@ -6,7 +6,7 @@ export interface CountTarget {
 }
 
 export function parseCountTarget(raw: string): CountTarget {
-  const match = raw.match(/^([^\d]*)([\d,]+)(.*)$/s);
+  const match = raw.match(/^([^\d]*)([\d,]+)(.*)$/);
   if (!match) {
     return { prefix: '', value: 0, suffix: raw, hasComma: false };
   }
