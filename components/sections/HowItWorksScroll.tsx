@@ -57,13 +57,13 @@ export function HowItWorksScroll({ variant }: { variant: 'compact' | 'full' }) {
   const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeStep, setActiveStep] = useState(0);
 
+  const scrollDistance = variant === 'full' ? 400 : 300;
+
   useEffect(() => {
     if (!pinCapable) return;
     registerGsap();
     const container = containerRef.current;
     if (!container) return;
-
-    const scrollDistance = variant === 'full' ? 400 : 300;
     const trigger = ScrollTrigger.create({
       trigger: container,
       start: 'top top',
@@ -92,8 +92,7 @@ export function HowItWorksScroll({ variant }: { variant: 'compact' | 'full' }) {
     });
   }, [activeStep]);
 
-  const scrollDistance = variant === 'full' ? 400 : 300;
-  const heightClass = variant === 'full' ? 'lg:h-[400vh]' : 'lg:h-[300vh]';
+  const heightClass = `lg:h-[${scrollDistance}vh]`;
 
   return (
     <div>
