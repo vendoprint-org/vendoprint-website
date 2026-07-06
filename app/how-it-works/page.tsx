@@ -2,11 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { AnimateIn } from '@/components/AnimateIn';
 import { generatePageMeta, breadcrumbSchema, faqSchema } from '@/lib/seo';
+import { HowItWorksScroll } from '@/components/sections/HowItWorksScroll';
 import {
-  QrCode,
-  Upload,
-  CreditCard,
-  PackageCheck,
   ShieldCheck,
   Lock,
   Trash2,
@@ -83,54 +80,8 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ═══════════ STEPS (EXPANDED) ═══════════ */}
-      <section className="section-padding section-y bg-white border-t border-brand-border">
-        <div className="max-w-4xl space-y-20">
-          {[
-            {
-              icon: QrCode,
-              step: '01',
-              title: 'Scan the QR Code',
-              desc: 'Walk up to any Vendoprint kiosk. Open your phone camera and scan the QR code on the screen. No app download required\u2009\u2014\u2009it works through your browser.',
-            },
-            {
-              icon: Upload,
-              step: '02',
-              title: 'Upload Your Documents',
-              desc: 'Select your files\u2009\u2014\u2009PDFs, images, Word docs. Choose colour or black & white, number of copies, page range, and paper size. Preview before you confirm.',
-            },
-            {
-              icon: CreditCard,
-              step: '03',
-              title: 'Pay Securely',
-              desc: 'Pay via UPI, debit/credit card, or digital wallet. Pricing is transparent\u2009\u2014\u2009you see the exact amount before you pay. No surprises.',
-            },
-            {
-              icon: PackageCheck,
-              step: '04',
-              title: 'Collect From Your Slot',
-              desc: 'Your prints come out in a secure, personal slot\u2009\u2014\u2009not an open tray. The patented Smart Slot-Sorting System ensures your documents are separated from every other user\u2019s. Pick them up and go.',
-            },
-          ].map((step, i) => (
-            <AnimateIn key={step.step} delay={0.1}>
-              <div className="flex gap-8 items-start">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-brand-orange flex items-center justify-center">
-                    <step.icon size={28} className="text-white" />
-                  </div>
-                  <p className="text-center font-sora font-bold text-sm text-brand-orange mt-2">
-                    {step.step}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-sora font-bold text-subheading mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="body-text">{step.desc}</p>
-                </div>
-              </div>
-            </AnimateIn>
-          ))}
-        </div>
+      <section className="section-padding section-y bg-white border-t border-brand-border overflow-hidden">
+        <HowItWorksScroll variant="full" />
       </section>
 
       {/* ═══════════ PATENTED DIFFERENCE ═══════════ */}
@@ -222,7 +173,7 @@ export default function HowItWorksPage() {
             { icon: Wrench, text: 'Vendoprint handles hardware, software, maintenance, and support' },
           ].map((item, i) => (
             <AnimateIn key={i} delay={i * 0.1}>
-              <div className="card flex gap-4 items-start">
+              <div className="card-glass flex gap-4 items-start">
                 <item.icon size={20} className="text-brand-orange flex-shrink-0 mt-0.5" />
                 <p className="body-text">{item.text}</p>
               </div>
@@ -252,7 +203,7 @@ export default function HowItWorksPage() {
         <div className="max-w-3xl space-y-6">
           {faqs.map((faq, i) => (
             <AnimateIn key={i} delay={i * 0.08}>
-              <div className="card">
+              <div className="card-glass">
                 <h3 className="font-sora font-bold text-lg mb-2">
                   {faq.question}
                 </h3>
