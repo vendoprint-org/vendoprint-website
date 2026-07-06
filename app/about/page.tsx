@@ -1,14 +1,9 @@
-import { Metadata } from 'next';
-import { AnimateIn } from '@/components/AnimateIn';
-import { generatePageMeta, breadcrumbSchema } from '@/lib/seo';
-import { User } from 'lucide-react';
+'use client';
 
-export const metadata: Metadata = generatePageMeta({
-  title: 'About Vendoprint — Building India\'s Printing Infrastructure',
-  description:
-    'Vendoprint Pvt Ltd is a Bangalore-based startup building a network of patented, fully automated printing kiosks. No operators. No storefronts.',
-  path: '/about',
-});
+import { motion } from 'framer-motion';
+import { AnimateIn } from '@/components/AnimateIn';
+import { breadcrumbSchema } from '@/lib/seo';
+import { User } from 'lucide-react';
 
 const milestones = [
   {
@@ -118,7 +113,13 @@ export default function AboutPage() {
         <div className="max-w-3xl">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-[23px] top-2 bottom-2 w-px bg-brand-border" />
+            <motion.div
+              className="absolute left-[23px] top-2 bottom-2 w-px bg-brand-border origin-top"
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+            />
 
             <div className="space-y-10">
               {milestones.map((m, i) => (
@@ -161,7 +162,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
           {team.map((member, i) => (
             <AnimateIn key={member.name} delay={i * 0.1}>
-              <div className="card text-center">
+              <div className="card-glass text-center">
                 <div className="w-20 h-20 rounded-full bg-brand-surface flex items-center justify-center mx-auto mb-4">
                   <User size={32} className="text-brand-muted" />
                 </div>
