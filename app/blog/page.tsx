@@ -40,7 +40,7 @@ export default function BlogPage() {
 
       <section className="section-padding pb-32">
         <AnimateIn>
-          <div className="card max-w-lg text-center mx-auto py-16">
+          <div className="card-glass max-w-lg text-center mx-auto py-16">
             <PenLine size={40} className="text-brand-orange/30 mx-auto mb-4" />
             <h2 className="font-sora font-bold text-xl mb-2">
               First post coming soon
