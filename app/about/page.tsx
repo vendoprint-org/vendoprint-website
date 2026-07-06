@@ -1,9 +1,15 @@
-'use client';
-
-import { motion } from 'framer-motion';
+import { Metadata } from 'next';
 import { AnimateIn } from '@/components/AnimateIn';
-import { breadcrumbSchema } from '@/lib/seo';
+import { TimelineLine } from '@/components/ui/TimelineLine';
+import { breadcrumbSchema, generatePageMeta } from '@/lib/seo';
 import { User } from 'lucide-react';
+
+export const metadata: Metadata = generatePageMeta({
+  title: 'About Vendoprint — Building India\'s Printing Infrastructure',
+  description:
+    'Vendoprint Pvt Ltd is a Bangalore-based startup building a network of patented, fully automated printing kiosks. No operators. No storefronts.',
+  path: '/about',
+});
 
 const milestones = [
   {
@@ -113,13 +119,7 @@ export default function AboutPage() {
         <div className="max-w-3xl">
           <div className="relative">
             {/* Timeline line */}
-            <motion.div
-              className="absolute left-[23px] top-2 bottom-2 w-px bg-brand-border origin-top"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: 'easeOut' }}
-            />
+            <TimelineLine />
 
             <div className="space-y-10">
               {milestones.map((m, i) => (
