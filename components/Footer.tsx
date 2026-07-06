@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { Logo } from './Logo';
+import { AnimateIn } from './AnimateIn';
 
 const footerLinks = {
   Company: [
@@ -21,7 +24,7 @@ export function Footer() {
       <div className="section-padding py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand Column */}
-          <div className="md:col-span-5">
+          <AnimateIn className="md:col-span-5">
             <Logo variant="reversed" iconSize={36} />
             <p className="text-caption uppercase tracking-widest text-brand-muted mt-4">
               Automated Printing, Anytime, Anywhere
@@ -30,11 +33,11 @@ export function Footer() {
               India&apos;s first patented smart printing kiosk network.
               Building the future of self-service printing infrastructure.
             </p>
-          </div>
+          </AnimateIn>
 
           {/* Link Columns */}
-          {Object.entries(footerLinks).map(([heading, links]) => (
-            <div key={heading} className="md:col-span-2">
+          {Object.entries(footerLinks).map(([heading, links], i) => (
+            <AnimateIn key={heading} delay={0.1 + i * 0.08} className="md:col-span-2">
               <h3 className="text-caption uppercase tracking-widest text-brand-cream/40 mb-4">
                 {heading}
               </h3>
@@ -43,18 +46,18 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[15px] text-brand-cream/70 hover:text-brand-orange transition-colors"
+                      className="text-[15px] text-brand-cream/70 hover:text-brand-orange transition-colors inline-block hover:translate-x-1 duration-200"
                     >
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </AnimateIn>
           ))}
 
           {/* Contact Column */}
-          <div className="md:col-span-3">
+          <AnimateIn delay={0.26} className="md:col-span-3">
             <h3 className="text-caption uppercase tracking-widest text-brand-cream/40 mb-4">
               Get In Touch
             </h3>
@@ -72,7 +75,7 @@ export function Footer() {
                 Bangalore - 560061, Karnataka
               </p>
             </div>
-          </div>
+          </AnimateIn>
         </div>
 
         {/* Bottom Bar */}
