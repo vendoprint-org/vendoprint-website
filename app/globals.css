@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-black font-archivo;
+  }
+
+  ::selection {
+    @apply bg-brand-orange/20 text-brand-black;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .section-y {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .eyebrow {
+    @apply text-caption font-semibold uppercase tracking-widest text-brand-orange;
+  }
+
+  .heading-display {
+    @apply font-sora font-extrabold text-display md:text-display-lg lg:text-display-xl text-brand-black;
+  }
+
+  .heading-section {
+    @apply font-sora font-extrabold text-heading md:text-display text-brand-black;
+  }
+
+  .body-text {
+    @apply text-body md:text-body-lg text-brand-muted leading-relaxed;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-orange text-white font-archivo font-semibold
+           px-7 py-3.5 rounded-full text-body
+           hover:bg-brand-orange-dark active:scale-[0.98]
+           transition-all duration-200 ease-out;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 border-2 border-brand-black text-brand-black font-archivo font-semibold
+           px-7 py-3.5 rounded-full text-body
+           hover:bg-brand-black hover:text-brand-cream active:scale-[0.98]
+           transition-all duration-200 ease-out;
+  }
+
+  .card {
+    @apply bg-white border border-brand-border rounded-brand p-8;
+  }
+}
+
+/* Smooth scroll offset for fixed nav */
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6EF;
+}
+::-webkit-scrollbar-thumb {
+  background: #DDD5C8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6E6659;
+}
