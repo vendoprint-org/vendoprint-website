@@ -63,10 +63,11 @@ export function HowItWorksScroll({ variant }: { variant: 'compact' | 'full' }) {
     const container = containerRef.current;
     if (!container) return;
 
+    const scrollDistance = variant === 'full' ? 400 : 300;
     const trigger = ScrollTrigger.create({
       trigger: container,
       start: 'top top',
-      end: '+=300%',
+      end: `+=${scrollDistance}%`,
       pin: true,
       scrub: 1,
       onUpdate: (self) => {
@@ -76,7 +77,7 @@ export function HowItWorksScroll({ variant }: { variant: 'compact' | 'full' }) {
     });
 
     return () => trigger.kill();
-  }, [pinCapable]);
+  }, [pinCapable, variant]);
 
   useEffect(() => {
     stepRefs.current.forEach((el, i) => {
@@ -91,6 +92,7 @@ export function HowItWorksScroll({ variant }: { variant: 'compact' | 'full' }) {
     });
   }, [activeStep]);
 
+  const scrollDistance = variant === 'full' ? 400 : 300;
   const heightClass = variant === 'full' ? 'lg:h-[400vh]' : 'lg:h-[300vh]';
 
   return (
