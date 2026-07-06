@@ -92,8 +92,6 @@ export function HowItWorksScroll({ variant }: { variant: 'compact' | 'full' }) {
     });
   }, [activeStep]);
 
-  const heightClass = `lg:h-[${scrollDistance}vh]`;
-
   return (
     <div>
       <AnimateIn>
@@ -104,7 +102,7 @@ export function HowItWorksScroll({ variant }: { variant: 'compact' | 'full' }) {
       </AnimateIn>
 
       {pinCapable ? (
-        <div ref={containerRef} className={`relative hidden lg:block ${heightClass}`}>
+        <div ref={containerRef} className="relative hidden lg:block">
           <div className="sticky top-0 h-screen flex items-center">
             <div className="section-padding w-full grid grid-cols-2 gap-16 items-center">
               <div className="relative h-[280px]">

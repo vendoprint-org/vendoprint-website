@@ -6,10 +6,6 @@ import { HowItWorksScroll } from '@/components/sections/HowItWorksScroll';
 import { CountUp } from '@/components/ui/CountUp';
 import { productSchema, breadcrumbSchema } from '@/lib/seo';
 import {
-  QrCode,
-  Upload,
-  CreditCard,
-  PackageCheck,
   ShieldCheck,
   Cpu,
   CloudCog,
