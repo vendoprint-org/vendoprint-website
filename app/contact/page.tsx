@@ -64,7 +64,7 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps Embed */}
-              <div className="rounded-brand overflow-hidden border border-brand-border h-[280px]">
+              <div className="rounded-brand overflow-hidden border border-brand-border/70 shadow-[0_1px_2px_rgba(22,19,15,0.04)] h-[280px]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8!2d77.56!3d12.91!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU0JzM2LjAiTiA3N8KwMzMnMzYuMCJF!5e0!3m2!1sen!2sin!4v1"
                   width="100%"
@@ -82,7 +82,7 @@ export default function ContactPage() {
           {/* Form */}
           <AnimateIn delay={0.15}>
             {submitted ? (
-              <div className="card text-center py-16">
+              <div className="card-glass text-center py-16">
                 <CheckCircle size={48} className="text-brand-orange mx-auto mb-4" />
                 <h3 className="font-sora font-bold text-xl mb-2">Message sent</h3>
                 <p className="body-text">
