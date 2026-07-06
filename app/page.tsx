@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { AnimateIn } from '@/components/AnimateIn';
+import { HeroKiosk } from '@/components/HeroKiosk';
 import { productSchema, breadcrumbSchema } from '@/lib/seo';
 import {
   QrCode,
@@ -37,49 +38,7 @@ export default function HomePage() {
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-brand-orange/5 blur-[120px]" />
 
         <div className="relative section-padding w-full pt-28 pb-20 md:pt-32 md:pb-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            <AnimateIn>
-              <div className="max-w-xl">
-                <p className="eyebrow mb-4">Patented Technology</p>
-                <h1 className="heading-display mb-6">
-                  India&apos;s First Patented Smart Printing Kiosk
-                </h1>
-                <p className="body-text mb-8 max-w-lg">
-                  Walk up. Scan. Print. Collect. No queues, no shopkeepers,
-                  no hours&nbsp;&mdash; just your documents, ready when you are.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link href="/partner" className="btn-primary">
-                    Partner With Us
-                    <ArrowRight size={18} />
-                  </Link>
-                  <Link href="/how-it-works" className="btn-secondary">
-                    See How It Works
-                  </Link>
-                </div>
-              </div>
-            </AnimateIn>
-
-            <AnimateIn delay={0.2} direction="right">
-              <div className="relative flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-md lg:max-w-lg">
-                  <Image
-                    src="/images/kiosk-hero.png"
-                    alt="Vendoprint smart printing kiosk in a modern space"
-                    width={600}
-                    height={900}
-                    priority
-                    className="rounded-2xl shadow-2xl shadow-brand-black/10"
-                  />
-                  {/* Floating badge */}
-                  <div className="absolute -bottom-4 -left-4 md:bottom-4 md:-left-8 bg-white rounded-brand px-5 py-3 shadow-lg border border-brand-border">
-                    <p className="text-caption uppercase text-brand-orange font-semibold">Patent Granted</p>
-                    <p className="text-xs text-brand-muted mt-0.5">Smart Slot-Sorting System</p>
-                  </div>
-                </div>
-              </div>
-            </AnimateIn>
-          </div>
+          <HeroKiosk />
         </div>
       </section>
 
