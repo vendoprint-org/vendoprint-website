@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { AnimateIn } from '@/components/AnimateIn';
 import {
   GraduationCap,
@@ -103,7 +104,7 @@ export default function PartnerPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
           {locations.map((loc, i) => (
             <AnimateIn key={loc.label} delay={i * 0.06}>
-              <div className="card flex gap-4 items-center">
+              <div className="card-glass flex gap-4 items-center">
                 <loc.icon size={22} className="text-brand-orange flex-shrink-0" />
                 <span className="font-medium text-body">{loc.label}</span>
               </div>
@@ -121,18 +122,27 @@ export default function PartnerPage() {
           </div>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl">
-          {steps.map((s, i) => (
-            <AnimateIn key={s.step} delay={i * 0.1}>
-              <div>
-                <p className="font-sora font-bold text-4xl text-brand-orange/20 mb-3">
-                  {s.step}
-                </p>
-                <h3 className="font-sora font-bold text-xl mb-2">{s.title}</h3>
-                <p className="body-text text-sm">{s.desc}</p>
-              </div>
-            </AnimateIn>
-          ))}
+        <div className="relative max-w-5xl">
+          <motion.div
+            className="hidden lg:block absolute top-6 left-0 right-0 h-px bg-brand-border origin-left"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {steps.map((s, i) => (
+              <AnimateIn key={s.step} delay={i * 0.1}>
+                <div>
+                  <p className="font-sora font-bold text-4xl text-brand-orange/20 mb-3">
+                    {s.step}
+                  </p>
+                  <h3 className="font-sora font-bold text-xl mb-2">{s.title}</h3>
+                  <p className="body-text text-sm">{s.desc}</p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -148,7 +158,7 @@ export default function PartnerPage() {
         <AnimateIn delay={0.1}>
           <div className="max-w-2xl">
             {submitted ? (
-              <div className="card text-center py-16">
+              <div className="card-glass text-center py-16">
                 <CheckCircle size={48} className="text-brand-orange mx-auto mb-4" />
                 <h3 className="font-sora font-bold text-xl mb-2">
                   Enquiry submitted
