@@ -45,8 +45,7 @@ export function CountUp({ value, duration = 1.2, className }: CountUpProps) {
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView]);
+  }, [inView, value, duration]);
 
   return (
     <span ref={ref} className={className}>
