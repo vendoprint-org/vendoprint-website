@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Host
+Host: https://vendoprint.in
+
+# Sitemaps
+Sitemap: https://vendoprint.in/sitemap.xml
