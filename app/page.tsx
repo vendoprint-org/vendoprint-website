@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AnimateIn } from '@/components/AnimateIn';
 import { HeroKiosk } from '@/components/HeroKiosk';
+import { HowItWorksScroll } from '@/components/sections/HowItWorksScroll';
+import { CountUp } from '@/components/ui/CountUp';
 import { productSchema, breadcrumbSchema } from '@/lib/seo';
 import {
   QrCode,
@@ -39,6 +41,23 @@ export default function HomePage() {
 
         <div className="relative section-padding w-full pt-28 pb-20 md:pt-32 md:pb-28">
           <HeroKiosk />
+
+          <AnimateIn delay={0.4}>
+            <div className="mt-16 pt-10 border-t border-brand-border flex flex-wrap gap-x-12 gap-y-6">
+              {[
+                { value: '24/7', label: 'Always Available' },
+                { value: '<60s', label: 'Print Time' },
+                { value: '100%', label: 'Contactless' },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <CountUp value={stat.value} className="font-sora font-extrabold text-3xl text-brand-orange" />
+                  <p className="text-caption uppercase tracking-widest text-brand-muted mt-1">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
         </div>
       </section>
 
@@ -98,7 +117,7 @@ export default function HomePage() {
             },
           ].map((card, i) => (
             <AnimateIn key={card.title} delay={i * 0.1}>
-              <div className="card h-full flex flex-col">
+              <div className="card-glass h-full flex flex-col">
                 <div className="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center mb-5">
                   <card.icon size={24} className="text-brand-orange" />
                 </div>
@@ -113,57 +132,8 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════ HOW IT WORKS (MINI) ═══════════ */}
-      <section className="section-padding section-y border-t border-brand-border">
-        <AnimateIn>
-          <div className="text-center mb-16">
-            <p className="eyebrow mb-3">How It Works</p>
-            <h2 className="heading-section">
-              Four steps. Under a minute.
-            </h2>
-          </div>
-        </AnimateIn>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              icon: QrCode,
-              step: '01',
-              title: 'Scan',
-              desc: 'Scan the QR code on the kiosk with your phone',
-            },
-            {
-              icon: Upload,
-              step: '02',
-              title: 'Upload',
-              desc: 'Select your documents. Set pages, copies, colour or B&W',
-            },
-            {
-              icon: CreditCard,
-              step: '03',
-              title: 'Pay',
-              desc: 'Pay instantly via UPI, card, or wallet',
-            },
-            {
-              icon: PackageCheck,
-              step: '04',
-              title: 'Collect',
-              desc: 'Your prints arrive in your personal secure slot',
-            },
-          ].map((step, i) => (
-            <AnimateIn key={step.title} delay={i * 0.1}>
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-brand-orange mx-auto mb-5 flex items-center justify-center">
-                  <step.icon size={28} className="text-white" />
-                </div>
-                <p className="text-caption text-brand-orange font-semibold mb-2">
-                  Step {step.step}
-                </p>
-                <h3 className="font-sora font-bold text-xl mb-2">{step.title}</h3>
-                <p className="body-text text-sm">{step.desc}</p>
-              </div>
-            </AnimateIn>
-          ))}
-        </div>
+      <section className="section-padding section-y border-t border-brand-border overflow-hidden">
+        <HowItWorksScroll variant="compact" />
       </section>
 
       {/* ═══════════ VISION / NUMBERS ═══════════ */}
@@ -186,9 +156,10 @@ export default function HomePage() {
           ].map((stat, i) => (
             <AnimateIn key={stat.number} delay={i * 0.1}>
               <div className="text-center">
-                <p className="font-sora font-extrabold text-display-lg md:text-display-xl text-brand-orange">
-                  {stat.number}
-                </p>
+                <CountUp
+                  value={stat.number}
+                  className="font-sora font-extrabold text-display-lg md:text-display-xl text-brand-orange block"
+                />
                 <p className="text-brand-cream/60 text-body mt-2">{stat.label}</p>
               </div>
             </AnimateIn>
