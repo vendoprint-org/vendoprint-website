@@ -3,13 +3,13 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { calcTilt } from '@/lib/tilt';
 import { calcParallaxOffset } from '@/lib/parallax';
 import { registerGsap, gsap } from '@/lib/gsap';
 
-const MAX_TILT_DEG = 3;
+const MAX_TILT_DEG = 8;
 
 function usePointerCapable() {
   const [capable, setCapable] = useState(false);
@@ -32,11 +32,26 @@ export function HeroKiosk() {
 
   const tiltCapable = usePointerCapable();
   const [scrollY, setScrollY] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
 
   const rawRotateX = useMotionValue(0);
   const rawRotateY = useMotionValue(0);
   const rotateX = useSpring(rawRotateX, { stiffness: 120, damping: 20 });
   const rotateY = useSpring(rawRotateY, { stiffness: 120, damping: 20 });
+
+  const rawLift = useMotionValue(0);
+  const lift = useSpring(rawLift, { stiffness: 160, damping: 18 });
+
+  const shadowOffsetX = useTransform(rotateY, [-MAX_TILT_DEG, MAX_TILT_DEG], [18, -18]);
+  const shadowOffsetY = useTransform(rotateX, [-MAX_TILT_DEG, MAX_TILT_DEG], [-14, 26]);
+  const dropShadow = useTransform(
+    [shadowOffsetX, shadowOffsetY],
+    ([x, y]: number[]) => `drop-shadow(${x}px ${y + 24}px 24px rgba(20, 16, 12, 0.28))`
+  );
+
+  const groundScaleX = useTransform(rotateY, [-MAX_TILT_DEG, MAX_TILT_DEG], [0.82, 1.18]);
+  const groundSkew = useTransform(rotateY, [-MAX_TILT_DEG, MAX_TILT_DEG], [8, -8]);
+  const groundOpacity = useTransform(rotateX, [-MAX_TILT_DEG, MAX_TILT_DEG], [0.3, 0.14]);
 
   const glowOffset = calcParallaxOffset(scrollY, 0.6) * -1;
   const badgeOffset = calcParallaxOffset(scrollY, 0.85) * -1;
@@ -63,18 +78,26 @@ export function HeroKiosk() {
       rawRotateX.set(rx);
       rawRotateY.set(ry);
     };
+    const onMouseEnter = () => {
+      setIsHovering(true);
+      rawLift.set(-14);
+    };
     const onMouseLeave = () => {
       rawRotateX.set(0);
       rawRotateY.set(0);
+      rawLift.set(0);
+      setIsHovering(false);
     };
 
     el.addEventListener('mousemove', onMouseMove);
+    el.addEventListener('mouseenter', onMouseEnter);
     el.addEventListener('mouseleave', onMouseLeave);
     return () => {
       el.removeEventListener('mousemove', onMouseMove);
+      el.removeEventListener('mouseenter', onMouseEnter);
       el.removeEventListener('mouseleave', onMouseLeave);
     };
-  }, [tiltCapable, rawRotateX, rawRotateY]);
+  }, [tiltCapable, rawRotateX, rawRotateY, rawLift]);
 
   useEffect(() => {
     registerGsap();
@@ -133,23 +156,43 @@ export function HeroKiosk() {
         </div>
       </div>
 
-      <div className="relative flex justify-center lg:justify-end">
-        <div ref={imageWrapRef} className="relative w-full max-w-md lg:max-w-lg" style={{ perspective: 1000 }}>
+      <div className="relative flex justify-center lg:justify-end lg:pr-10 xl:pr-16">
+        <div ref={imageWrapRef} className="relative w-full max-w-xs lg:max-w-sm" style={{ perspective: 1200 }}>
           <div
             aria-hidden
-            className="absolute -inset-12 rounded-full bg-brand-orange/10 blur-[80px] -z-10"
-            style={{ transform: `translateY(${glowOffset}px)` }}
+            className="absolute -inset-12 rounded-full bg-brand-orange/10 blur-[80px] -z-10 transition-transform duration-300"
+            style={{
+              transform: `translateY(${glowOffset}px) scale(${isHovering ? 1.15 : 1})`,
+            }}
           />
-          <motion.div style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}>
+          <motion.div
+            style={{
+              rotateX,
+              rotateY,
+              y: lift,
+              filter: dropShadow,
+              transformStyle: 'preserve-3d',
+            }}
+            className="relative"
+          >
             <Image
-              src="/images/kiosk-hero.png"
-              alt="Vendoprint smart printing kiosk in a modern space"
-              width={600}
-              height={900}
+              src="/images/kiosk-machine.png"
+              alt="Vendoprint smart printing kiosk machine"
+              width={480}
+              height={932}
               priority
-              className="rounded-2xl shadow-2xl shadow-brand-black/10"
+              className="w-full h-auto select-none"
             />
           </motion.div>
+          <motion.div
+            aria-hidden
+            className="absolute left-1/2 bottom-2 h-6 w-4/5 -translate-x-1/2 rounded-full bg-brand-black/40 blur-xl -z-10"
+            style={{
+              scaleX: groundScaleX,
+              skewX: groundSkew,
+              opacity: groundOpacity,
+            }}
+          />
           <div
             className="absolute -bottom-4 -left-4 md:bottom-4 md:-left-8 bg-white rounded-brand px-5 py-3 shadow-lg border border-brand-border"
             style={{ transform: `translateY(${badgeOffset}px)` }}
