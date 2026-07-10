@@ -34,7 +34,7 @@ export function FinalCTA() {
         <AnimateIn direction="right" className="flex justify-center lg:justify-end">
           <Image
             src="/assets/vendoprint/illustrations/india-map-glow.webp"
-            alt="Vend-O-Print kiosk network across India"
+            alt="Vend-O-Print's vision for a nationwide kiosk network by 2030"
             width={720}
             height={620}
             className="w-full max-w-md h-auto"

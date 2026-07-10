@@ -21,9 +21,6 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Home page has a dark hero → transparent navbar sits on dark, needs light text.
-  const onDarkHero = pathname === '/' && !scrolled && !mobileOpen;
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
@@ -48,7 +45,7 @@ export function Navbar() {
     >
       <nav className="section-padding flex items-center justify-between h-[72px]">
         <Link href="/" aria-label="Vend-O-Print home">
-          <Logo iconSize={32} variant={onDarkHero ? 'reversed' : 'default'} />
+          <Logo iconSize={32} variant="default" />
         </Link>
 
         {/* Desktop Nav */}
@@ -60,11 +57,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-[15px] font-medium transition-colors duration-200 ${
-                  active
-                    ? 'text-primary'
-                    : onDarkHero
-                    ? 'text-white/80 hover:text-white'
-                    : 'text-ink hover:text-primary'
+                  active ? 'text-primary' : 'text-ink hover:text-primary'
                 }`}
               >
                 {link.label}
@@ -79,9 +72,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className={`lg:hidden p-2 -mr-2 transition-colors ${
-            onDarkHero ? 'text-white' : 'text-ink'
-          }`}
+          className="lg:hidden p-2 -mr-2 text-ink transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}

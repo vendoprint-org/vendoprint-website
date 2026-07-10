@@ -12,9 +12,10 @@ export function Coverage() {
     <section className="section-padding section-y bg-gray-50 border-t border-gray-200">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <AnimateIn direction="left">
-          <h2 className="heading-section mb-4">Across India. Always near you.</h2>
+          <h2 className="heading-section mb-4">Starting in Bangalore. Built for India.</h2>
           <p className="body-text mb-10 max-w-md">
-            Find a Vend-O-Print kiosk near your campus, office, or nearest public space.
+            Vend-O-Print kiosks are live in Bangalore today, with a patented platform built to
+            scale to 10,000+ kiosks across India by 2030.
           </p>
 
           <div className="grid grid-cols-3 gap-6 mb-10 max-w-md">
@@ -36,14 +37,17 @@ export function Coverage() {
           </Link>
         </AnimateIn>
 
-        <AnimateIn direction="right" className="flex justify-center">
+        <AnimateIn direction="right" className="flex flex-col items-center">
           <Image
             src="/assets/vendoprint/illustrations/india-map-light.webp"
-            alt="Map of India showing Vend-O-Print kiosk coverage"
+            alt="Illustration of Vend-O-Print's 2030 vision for a nationwide kiosk network"
             width={720}
             height={640}
             className="w-full max-w-lg h-auto"
           />
+          <p className="text-caption uppercase tracking-widest text-slate mt-3">
+            Our 2030 vision — not current coverage
+          </p>
         </AnimateIn>
       </div>
     </section>

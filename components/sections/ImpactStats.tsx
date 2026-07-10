@@ -23,10 +23,16 @@ export function ImpactStats() {
           {IMPACT_STATS.map((stat, i) => (
             <AnimateIn key={stat.label} delay={i * 0.1}>
               <div className="text-center">
-                <CountUp
-                  value={stat.value}
-                  className="font-display font-extrabold text-display-lg md:text-display-xl text-primary block"
-                />
+                {/\d/.test(stat.value) ? (
+                  <CountUp
+                    value={stat.value}
+                    className="font-display font-extrabold text-display-lg md:text-display-xl text-primary block"
+                  />
+                ) : (
+                  <span className="font-display font-extrabold text-display-lg md:text-display-xl text-primary block">
+                    {stat.value}
+                  </span>
+                )}
                 <p className="text-body font-semibold text-white mt-2">{stat.label}</p>
                 <p className="text-small text-white/50 mt-1">{stat.note}</p>
               </div>

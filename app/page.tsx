@@ -7,8 +7,6 @@ import { HowItWorksSteps } from '@/components/sections/HowItWorksSteps';
 import { ProductHighlight } from '@/components/sections/ProductHighlight';
 import { ImpactStats } from '@/components/sections/ImpactStats';
 import { Coverage } from '@/components/sections/Coverage';
-import { Testimonials } from '@/components/sections/Testimonials';
-import { Pricing } from '@/components/sections/Pricing';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Newsletter } from '@/components/sections/Newsletter';
 import { productSchema, breadcrumbSchema } from '@/lib/seo';
@@ -35,12 +33,7 @@ export default function HomePage() {
       />
 
       {/* ═══════════ 01 · HERO ═══════════ */}
-      <section className="relative min-h-[100vh] flex items-center overflow-hidden bg-ink">
-        <div
-          className="absolute inset-0 opacity-[0.15] bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/vendoprint/backgrounds/03-circuit-pattern-dark.webp')" }}
-          aria-hidden
-        />
+      <section className="relative min-h-[100vh] flex items-center overflow-hidden bg-white border-b border-gray-200">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[130px]" aria-hidden />
         <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-primary/[0.07] blur-[130px]" aria-hidden />
 
@@ -48,7 +41,7 @@ export default function HomePage() {
           <HeroKiosk />
 
           <AnimateIn delay={0.4}>
-            <div className="mt-16 pt-10 border-t border-white/10 flex flex-wrap gap-x-12 gap-y-6">
+            <div className="mt-16 pt-10 border-t border-gray-200 flex flex-wrap gap-x-12 gap-y-6">
               {HERO_STATS.map((stat) => (
                 <div key={stat.label}>
                   {/\d/.test(stat.value) ? (
@@ -56,7 +49,7 @@ export default function HomePage() {
                   ) : (
                     <span className="font-display font-extrabold text-3xl text-primary">{stat.value}</span>
                   )}
-                  <p className="text-caption uppercase tracking-widest text-white/50 mt-1">
+                  <p className="text-caption uppercase tracking-widest text-slate mt-1">
                     {stat.label}
                   </p>
                 </div>
@@ -84,16 +77,10 @@ export default function HomePage() {
       {/* ═══════════ 07 · COVERAGE ═══════════ */}
       <Coverage />
 
-      {/* ═══════════ 08 · TESTIMONIALS ═══════════ */}
-      <Testimonials />
-
-      {/* ═══════════ 09 · PRICING ═══════════ */}
-      <Pricing />
-
-      {/* ═══════════ 10 · FINAL CTA ═══════════ */}
+      {/* ═══════════ 08 · FINAL CTA ═══════════ */}
       <FinalCTA />
 
-      {/* ═══════════ 11 · NEWSLETTER ═══════════ */}
+      {/* ═══════════ 09 · NEWSLETTER ═══════════ */}
       <Newsletter />
     </>
   );
