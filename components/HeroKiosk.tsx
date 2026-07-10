@@ -45,7 +45,7 @@ export function HeroKiosk() {
       >
         <motion.p
           variants={fadeUp}
-          className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-caption uppercase tracking-widest text-white/70 mb-6"
+          className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-caption uppercase tracking-widest text-slate mb-6 shadow-ds-sm"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
           India&apos;s most trusted smart printing network
@@ -53,14 +53,14 @@ export function HeroKiosk() {
 
         <motion.h1
           variants={fadeUp}
-          className="font-display font-extrabold text-display md:text-display-lg lg:text-display-xl text-white leading-[1.05] tracking-tight mb-6"
+          className="font-display font-extrabold text-display md:text-display-lg lg:text-display-xl text-ink leading-[1.05] tracking-tight mb-6"
         >
           Print. Anytime.
           <br />
           <span className="text-primary">Anywhere.</span>
         </motion.h1>
 
-        <motion.p variants={fadeUp} className="text-body-lg text-white/60 mb-8 max-w-lg">
+        <motion.p variants={fadeUp} className="text-body-lg text-slate mb-8 max-w-lg">
           India&apos;s first patented self-service printing kiosk. Walk up, scan, print,
           collect&nbsp;&mdash; no queues, no shopkeepers, no fixed hours.
         </motion.p>
@@ -70,10 +70,7 @@ export function HeroKiosk() {
             Partner With Us
             <ArrowRight size={18} />
           </Link>
-          <Link
-            href="/how-it-works"
-            className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/5 px-7 py-3.5 text-body font-semibold text-white transition-all duration-200 hover:bg-white/10 active:scale-[0.98]"
-          >
+          <Link href="/how-it-works" className="btn-secondary">
             See How It Works
           </Link>
         </motion.div>
@@ -118,7 +115,7 @@ export function HeroKiosk() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 + c.delay * 0.3 }}
-              className={`absolute ${c.pos} ${c.hideOnMobile ? 'hidden md:flex' : 'flex'} items-center gap-2.5 rounded-md border border-white/10 bg-white/[0.08] px-3.5 py-2.5 backdrop-blur-md shadow-ds-lg`}
+              className={`absolute ${c.pos} ${c.hideOnMobile ? 'hidden md:flex' : 'flex'} items-center gap-2.5 rounded-md border border-gray-200 bg-white px-3.5 py-2.5 backdrop-blur-md shadow-ds-lg`}
             >
               <motion.span
                 animate={reduce ? {} : { y: [0, -5, 0] }}
@@ -128,8 +125,8 @@ export function HeroKiosk() {
                 <c.icon size={16} />
               </motion.span>
               <div className="pr-1">
-                <p className="text-[13px] font-semibold leading-none text-white">{c.label}</p>
-                <p className="mt-1 text-[11px] leading-none text-white/50">{c.sub}</p>
+                <p className="text-[13px] font-semibold leading-none text-ink">{c.label}</p>
+                <p className="mt-1 text-[11px] leading-none text-slate">{c.sub}</p>
               </div>
             </motion.div>
           ))}
