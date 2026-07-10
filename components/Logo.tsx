@@ -16,11 +16,11 @@ export function Logo({
   const isDark = variant === 'reversed';
   const isMono = variant === 'mono';
 
-  const strokeColor = isDark ? '#F8F9FA' : '#0D0F14';
-  const fillColor = isDark ? '#F8F9FA' : '#0D0F14';
-  const accent = isMono ? '#0D0F14' : '#F57C20';
-  const bgFill = isDark ? '#0D0F14' : '#F8F9FA';
-  const textLines = isDark ? '#0D0F14' : '#F8F9FA';
+  const strokeColor = isDark ? '#FAF6EF' : '#16130F';
+  const fillColor = isDark ? '#FAF6EF' : '#16130F';
+  const accent = isMono ? '#16130F' : '#FF8200';
+  const bgFill = isDark ? '#16130F' : '#FAF6EF';
+  const textLines = isDark ? '#16130F' : '#FAF6EF';
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
