@@ -7,8 +7,6 @@ import { HowItWorksSteps } from '@/components/sections/HowItWorksSteps';
 import { ProductHighlight } from '@/components/sections/ProductHighlight';
 import { ImpactStats } from '@/components/sections/ImpactStats';
 import { Coverage } from '@/components/sections/Coverage';
-import { Testimonials } from '@/components/sections/Testimonials';
-import { Pricing } from '@/components/sections/Pricing';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Newsletter } from '@/components/sections/Newsletter';
 import { productSchema, breadcrumbSchema } from '@/lib/seo';
@@ -84,16 +82,10 @@ export default function HomePage() {
       {/* ═══════════ 07 · COVERAGE ═══════════ */}
       <Coverage />
 
-      {/* ═══════════ 08 · TESTIMONIALS ═══════════ */}
-      <Testimonials />
-
-      {/* ═══════════ 09 · PRICING ═══════════ */}
-      <Pricing />
-
-      {/* ═══════════ 10 · FINAL CTA ═══════════ */}
+      {/* ═══════════ 08 · FINAL CTA ═══════════ */}
       <FinalCTA />
 
-      {/* ═══════════ 11 · NEWSLETTER ═══════════ */}
+      {/* ═══════════ 09 · NEWSLETTER ═══════════ */}
       <Newsletter />
     </>
   );
