@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(osascript -e 'tell application \"Finder\" to duplicate file \"IMG_6515.PNG\" of folder \"Downloads\" of home to folder \\(\\(POSIX file \"/private/tmp/claude-501/-Users-rahulsingh-Downloads-vendoprint-site/84110784-4ad4-476d-ad92-d80a4de4134d/scratchpad\"\\) as alias\\)')",
+      "Bash(osascript -e 'tell application \"Finder\" to get name of home')",
+      "Bash(osascript -e 'set f to open for access \\(POSIX file \"/Users/rahulsingh/Downloads/vendoprint-site/components/HeroKiosk.tsx\"\\) *)",
+      "Bash(mkdir -p /Users/rahulsingh/vendoprint-test-access)",
+      "Bash(echo \"bash write ok\")",
+      "Bash(rm -rf /Users/rahulsingh/vendoprint-test-access)",
+      "Bash(osascript -e 'tell application \"Finder\" to move folder \"vendoprint-site\" of folder \"Downloads\" of home to home')",
+      "Bash(osascript -e 'tell application \"Finder\" to duplicate folder \"vendoprint-site\" of folder \"Downloads\" of home to home')",
+      "Bash(osascript -e 'tell application \"Finder\" to duplicate folder \"vendoprint-site\" of folder \"Downloads\" of home to folder \\(\\(POSIX file \"/Users/rahulsingh\"\\) as alias\\)')",
+      "Bash(osascript -e 'tell application \"Finder\" to duplicate folder \"docs\" of folder \"vendoprint-site\" of folder \"Downloads\" of home to folder \\(\\(POSIX file \"/Users/rahulsingh\"\\) as alias\\)')",
+      "Bash(cd *)",
+      "Bash(sips -g hasAlpha -g pixelWidth -g pixelHeight \"/private/tmp/claude-501/-Users-rahulsingh-Downloads-vendoprint-site/84110784-4ad4-476d-ad92-d80a4de4134d/scratchpad/IMG_6515.png\")",
+      "Bash(node -e \"console.log\\(require.resolve\\('sharp'\\)\\)\")",
+      "Bash(npm install *)"
+    ]
+  }
+}
