@@ -5,6 +5,7 @@ import { TrustStrip } from '@/components/sections/TrustStrip';
 import { Features } from '@/components/sections/Features';
 import { HowItWorksSteps } from '@/components/sections/HowItWorksSteps';
 import { ProductHighlight } from '@/components/sections/ProductHighlight';
+import { BuildQuality } from '@/components/sections/BuildQuality';
 import { ImpactStats } from '@/components/sections/ImpactStats';
 import { Coverage } from '@/components/sections/Coverage';
 import { FinalCTA } from '@/components/sections/FinalCTA';
@@ -71,16 +72,19 @@ export default function HomePage() {
       {/* ═══════════ 05 · PRODUCT HIGHLIGHT ═══════════ */}
       <ProductHighlight />
 
-      {/* ═══════════ 06 · IMPACT STATS ═══════════ */}
+      {/* ═══════════ 06 · BUILD QUALITY ═══════════ */}
+      <BuildQuality />
+
+      {/* ═══════════ 07 · IMPACT STATS ═══════════ */}
       <ImpactStats />
 
-      {/* ═══════════ 07 · COVERAGE ═══════════ */}
+      {/* ═══════════ 08 · COVERAGE ═══════════ */}
       <Coverage />
 
-      {/* ═══════════ 08 · FINAL CTA ═══════════ */}
+      {/* ═══════════ 09 · FINAL CTA ═══════════ */}
       <FinalCTA />
 
-      {/* ═══════════ 09 · NEWSLETTER ═══════════ */}
+      {/* ═══════════ 10 · NEWSLETTER ═══════════ */}
       <Newsletter />
     </>
   );

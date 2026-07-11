@@ -92,17 +92,17 @@ export function HeroKiosk() {
 
           <motion.div animate={float} className="relative">
             <Image
-              src="/assets/vendoprint/hero/hero-kiosk-dark.webp"
+              src="/assets/vendoprint/3d-assets/kiosk-front-light.webp"
               alt="Vend-O-Print self-service smart printing kiosk"
-              width={880}
-              height={1100}
+              width={1122}
+              height={1402}
               priority
               className="w-full h-auto select-none"
               style={{
                 WebkitMaskImage:
-                  'radial-gradient(ellipse 72% 82% at 50% 48%, #000 60%, transparent 100%)',
+                  'radial-gradient(ellipse 88% 92% at 50% 48%, #000 78%, transparent 100%)',
                 maskImage:
-                  'radial-gradient(ellipse 72% 82% at 50% 48%, #000 60%, transparent 100%)',
+                  'radial-gradient(ellipse 88% 92% at 50% 48%, #000 78%, transparent 100%)',
               }}
             />
           </motion.div>

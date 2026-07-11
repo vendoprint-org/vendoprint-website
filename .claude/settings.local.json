@@ -14,7 +14,10 @@
       "Bash(cd *)",
       "Bash(sips -g hasAlpha -g pixelWidth -g pixelHeight \"/private/tmp/claude-501/-Users-rahulsingh-Downloads-vendoprint-site/84110784-4ad4-476d-ad92-d80a4de4134d/scratchpad/IMG_6515.png\")",
       "Bash(node -e \"console.log\\(require.resolve\\('sharp'\\)\\)\")",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(sips *)",
+      "Bash(cp /tmp/crop-test/exploded-test3.png \"/tmp/exploded-src/kiosk-exploded-structure.png\")",
+      "Bash(node scripts/convert-assets.mjs /tmp/exploded-src illustrations)"
     ]
   }
 }
