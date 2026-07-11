@@ -34,7 +34,7 @@ export default function HomePage() {
       />
 
       {/* ═══════════ 01 · HERO ═══════════ */}
-      <section className="relative min-h-[100vh] flex items-center overflow-hidden bg-white border-b border-gray-200">
+      <section className="relative min-h-[100vh] flex items-center overflow-hidden bg-[#E5D9D0] border-b border-gray-200">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[130px]" aria-hidden />
         <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-primary/[0.07] blur-[130px]" aria-hidden />
 

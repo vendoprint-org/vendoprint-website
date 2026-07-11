@@ -26,7 +26,7 @@ export function BuildQuality() {
       </AnimateIn>
 
       <AnimateIn delay={0.1}>
-        <div className="rounded-lg border border-gray-200 bg-white p-6 md:p-10 shadow-ds-sm max-w-4xl mx-auto">
+        <div className="rounded-lg border border-gray-200 bg-[#EAE4E0] p-6 md:p-10 shadow-ds-sm max-w-4xl mx-auto">
           <Image
             src="/assets/vendoprint/illustrations/kiosk-exploded-structure.webp"
             alt="Exploded view of Vend-O-Print kiosk internal modules"
