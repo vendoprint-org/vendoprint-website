@@ -1,22 +1,16 @@
 import type { Metadata } from 'next';
-import { Sora, Archivo } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
+import { SmoothScroll } from '@/components/SmoothScroll';
 import { organizationSchema, localBusinessSchema } from '@/lib/seo';
 
-const sora = Sora({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
-  variable: '--font-sora',
-  display: 'swap',
-});
-
-const archivo = Archivo({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-archivo',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-jakarta',
   display: 'swap',
 });
 
@@ -72,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-IN" className={`${sora.variable} ${archivo.variable}`}>
+    <html lang="en-IN" className={jakarta.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/icon.svg" type="image/svg+xml" />
@@ -91,7 +85,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-archivo antialiased">
+      <body className="font-sans antialiased">
+        <SmoothScroll />
         <ScrollProgress />
         <Navbar />
         <main>{children}</main>

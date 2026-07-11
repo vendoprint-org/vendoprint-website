@@ -10,11 +10,18 @@
   }
 
   body {
-    @apply bg-brand-cream text-brand-black font-archivo;
+    @apply bg-gray-50 text-ink font-sans;
   }
 
   ::selection {
-    @apply bg-brand-orange/20 text-brand-black;
+    @apply bg-primary/20 text-ink;
+  }
+
+  /* Consistent, visible focus ring (Cat 10 accessibility) */
+  :focus-visible {
+    outline: 2px solid #F57C20;
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
@@ -28,44 +35,52 @@
   }
 
   .eyebrow {
-    @apply text-caption font-semibold uppercase tracking-widest text-brand-orange;
+    @apply text-caption font-semibold uppercase tracking-widest text-primary;
   }
 
   .heading-display {
-    @apply font-sora font-extrabold text-display md:text-display-lg lg:text-display-xl text-brand-black;
+    @apply font-display font-extrabold text-display md:text-display-lg lg:text-display-xl text-ink;
   }
 
   .heading-section {
-    @apply font-sora font-extrabold text-heading md:text-display text-brand-black;
+    @apply font-display font-extrabold text-heading md:text-display text-ink;
   }
 
   .body-text {
-    @apply text-body md:text-body-lg text-brand-muted leading-relaxed;
+    @apply text-body md:text-body-lg text-slate leading-relaxed;
   }
 
+  /* ─── Buttons (Cat 10 UI Kit) ─── */
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-brand-orange text-white font-archivo font-semibold
-           px-7 py-3.5 rounded-full text-body
-           hover:bg-brand-orange-dark active:scale-[0.98]
+    @apply inline-flex items-center gap-2 bg-primary text-white font-sans font-semibold
+           px-7 py-3.5 rounded-md text-body
+           shadow-ds-sm
+           hover:bg-primary-dark hover:shadow-ds-md active:scale-[0.98]
            transition-all duration-200 ease-out;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 border-2 border-brand-black text-brand-black font-archivo font-semibold
-           px-7 py-3.5 rounded-full text-body
-           hover:bg-brand-black hover:text-brand-cream active:scale-[0.98]
+    @apply inline-flex items-center gap-2 border border-gray-200 bg-white text-ink font-sans font-semibold
+           px-7 py-3.5 rounded-md text-body
+           hover:border-ink hover:shadow-ds-sm active:scale-[0.98]
            transition-all duration-200 ease-out;
   }
 
+  .btn-text {
+    @apply inline-flex items-center gap-2 text-primary font-sans font-semibold
+           text-body hover:gap-3 transition-all duration-200 ease-out;
+  }
+
+  /* ─── Cards ─── */
   .card {
-    @apply bg-white border border-brand-border rounded-brand p-8;
+    @apply bg-white border border-gray-200 rounded-lg p-8 shadow-ds-sm;
   }
 
   .card-glass {
-    @apply bg-white/60 backdrop-blur-sm border border-brand-border/70 rounded-brand p-8
-           shadow-[0_1px_2px_rgba(22,19,15,0.04)]
+    @apply bg-white border border-gray-200 rounded-lg p-8
+           shadow-ds-sm
            transition-all duration-300 ease-out
-           hover:border-brand-orange/40 hover:shadow-[0_8px_24px_rgba(255,130,0,0.12)]
+           hover:border-primary/40 hover:shadow-ds-lg
            hover:-translate-y-1;
   }
 }
@@ -80,17 +95,32 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF6EF;
+  background: #F1F3F5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DDD5C8;
+  background: #E5E7EB;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6E6659;
+  background: #9CA3AF;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
